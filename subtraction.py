@@ -33,12 +33,14 @@ if(size1 == size2 and size1 > 1):
                     n1[size1 - i] =  int(n1[size1 - i])-1
                     carry = 1
                 else:
-                    n1[size1 - i] =  int(n1[size2 - i])-1
+                    diff = int(n1[size1 - i]) - int(n2[size1 - i])
             if carry == 1:
                 n1[size1 - i] =  int(n1[size2 - i])-1
             if(len(result)==0) and int(n1[size1-i]) < int(n2[size2-i]):
                     n1[size1 - i] = "1" + str(n1[size1 - i])
-            diff = int(n1[size1 - i]) - int(n2[size1 - i])
+            elif((len(result)==0) and int(n1[size1-i]) > int(n2[size2-i])): 
+                diff = int(n1[size1 - i]) - int(n2[size1 - i])
+                
             result.append(diff)
         if flag == 1:
             print("-",end="")
