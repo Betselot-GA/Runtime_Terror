@@ -10,7 +10,8 @@ if len(num1) == len(num2):
         for i in range(1,len(num1)+1):
             summ = 0
             if len(carry) > 0:
-                summ += int(carry[0])
+                pop = carry.pop()
+                summ += int(pop)
             summ += int(num1[len(num1)-i]) + int(num2[len(num1)-i])
         
             if summ > 9:
