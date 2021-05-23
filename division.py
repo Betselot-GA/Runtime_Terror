@@ -3,7 +3,7 @@ n2 = []
 result = []
 flag = 0
 carry = 0
-gap = ""
+remainder = ""
 
 product = 1
 diff = 0
@@ -22,9 +22,7 @@ if int(num1) > int(num2):
     for i in range(1,10):
         product = i * int(num2)
         diff = int(num1) - product
-        
         if diff < int(num2):
-            print(product)
             diff1 = str(num1)
             diff2 = str(product)
             quotient = str(i)
@@ -58,9 +56,10 @@ if int(num1) > int(num2):
         if flag == 1:
             print("-",end="")
     for i in range(1,len(result)+1):    
-        gap += str(result[len(result)-i])
+        remainder = str(result[len(result)-i])
 
-    print(gap)
+    print("Remainder = ",remainder)
+    print("Quotient = ",quotient)
         
     
 
