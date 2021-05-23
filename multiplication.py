@@ -1,6 +1,7 @@
 result = []
 carry = []
 product = []
+flag = 0
 
 num1 = input("Enter first number: ")
 num2 = input("Enter second number: ")
@@ -19,9 +20,29 @@ if size1 == size2:
         for i in range(1,size1+1):
             product.append(int(num1) * int(num2[i-1]))
             
-        if len(str(product[0])) == len(str(product[1])):
-            product[0] = str(product[0]) + "0"
-            product[-1] = "0" + str(product[-1])
+        if size1 == 2:
+            if len(str(product[1])) == len(str(product[0])): 
+                product[0] = str(product[0]) + "0"
+                product[-1] = "0" + str(product[-1])
+            elif len(str(product[0])) == 3 and len(str(product[1])) == 1:
+                product[0] = str(product[0]) + "0"
+                product[-1] = "0" + "0" + "0" + str(product[-1])
+            elif len(str(product[0])) == 3 and len(str(product[1])) == 2:
+                product[0] = str(product[0]) + "0"
+                product[-1] = "0" + "0" + str(product[-1])
+            elif len(str(product[0])) == 1 and len(str(product[1])) == 3:
+                product[0] = str(product[0]) + "0" + "0" + "0"
+                product[-1] = "0"  + str(product[-1])
+            elif len(str(product[0])) == 2 and len(str(product[1])) == 3:
+                product[0] = str(product[0]) + "0" + "0"
+                product[-1] = "0"  + str(product[-1])
+            elif len(str(product[0])) == 1 and len(str(product[1])) == 2:
+                product[0] = str(product[0]) + "0" + "0"
+                product[-1] = "0"  + str(product[-1])
+            elif len(str(product[0])) == 2 and len(str(product[1])) == 1:
+                product[0] = str(product[0])  + "0"
+                product[-1] = "0" + "0"  + str(product[-1])
+            
         pro0 = len(str(product[0]))
         pro1 = len(str(product[1]))
         product0 = product[0]
@@ -46,6 +67,7 @@ if size1 == size2:
 
         for i in range(1, len(result)+1):
             print(result[len(result)-i],end="")
+            #print(result)
         
             
             
