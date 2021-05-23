@@ -26,20 +26,29 @@ if(size1 == size2 and size1 > 1):
         diff = 0
         if len(result) > 0:
             if (int(n1[size1-i]) < int(n2[size2-i])):
+                print("debug 2")
+                carry = 1
+                n1[size1 - i] =  int(n1[size1 - i])-1
                 n1[size1 - i] = "1" + str(n1[size1 - i])
                 diff = int(n1[size1 - i]) - int(n2[size1 - i])
-                carry = 1
+                
             else:
-                diff = int(n1[size1 - i]) - int(n2[size1 - i])
-            if carry == 1:
-                n1[size1 - i] =  int(n1[size2 - i])-1
-        if(len(result)==0) and int(n1[size1-i]) < int(n2[size2-i]):
+                if carry == 1:
+                    diff = int(n1[size1 - i]) - int(n2[size1 - i])
+                    continue
+                else:
+                   diff = int(n1[size1 - i]) - int(n2[size1 - i]) 
+            
+        elif(len(result)==0) and int(n1[size1-i]) < int(n2[size2-i]):
             print("debug 1")
             n1[size1 - i] = "1" + str(n1[size1 - i])
             diff = int(n1[size1 - i]) - int(n2[size1 - i])
             carry = 1
-        elif((len(result)==0) and int(n1[size1-i]) > int(n2[size2-i])): 
+        elif(len(result)==0) and int(n1[size1-i]) > int(n2[size2-i]): 
             diff = int(n1[size1 - i]) - int(n2[size1 - i])
+
+        if carry == 1:
+            n1[size1 - i] =  int(n1[size1 - i])-1
             
                 
         result.append(diff)
