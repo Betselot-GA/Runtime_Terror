@@ -24,33 +24,40 @@ if(size1 == size2 and size1 > 1):
             
     for i in range(1,size1+1):
         diff = 0
-        if len(result) > 0:
+        #print(result)
+        if result:
+            if carry == 1:
+                n1[size1 - i] =  int(n1[size1 - i])-1
+                print(n1[size1-i])
+                
             if (int(n1[size1-i]) < int(n2[size2-i])):
                 print("debug 2")
                 carry = 1
-                n1[size1 - i] =  int(n1[size1 - i])-1
+               
                 n1[size1 - i] = "1" + str(n1[size1 - i])
                 diff = int(n1[size1 - i]) - int(n2[size1 - i])
                 
             else:
-                if carry == 1:
-                    diff = int(n1[size1 - i]) - int(n2[size1 - i])
-                    continue
-                else:
-                   diff = int(n1[size1 - i]) - int(n2[size1 - i]) 
+                print("debug 3")
+                print(int(n1[size1-i])-1)
+                
+                diff = int(n1[size1 - i]) - int(n2[size1 - i]) 
             
-        elif(len(result)==0) and int(n1[size1-i]) < int(n2[size2-i]):
-            print("debug 1")
-            n1[size1 - i] = "1" + str(n1[size1 - i])
-            diff = int(n1[size1 - i]) - int(n2[size1 - i])
-            carry = 1
-        elif(len(result)==0) and int(n1[size1-i]) > int(n2[size2-i]): 
-            diff = int(n1[size1 - i]) - int(n2[size1 - i])
+        elif not result:
+            if int(n1[size1-i]) < int(n2[size2-i]):
+                print("debug 1")
+                carry = 1
+                n1[size1 - i] = "1" + str(n1[size1 - i])
+                diff = int(n1[size1 - i]) - int(n2[size1 - i])
+                n1[size1 - i] =  int(n1[size1 - i])-1
+            elif int(n1[size1-i]) > int(n2[size2-i]):
+                print("aaaa")
+                diff = int(n1[size1 - i]) - int(n2[size1 - i])
 
         if carry == 1:
             n1[size1 - i] =  int(n1[size1 - i])-1
             
-                
+        #print(result)  
         result.append(diff)
     if flag == 1:
         print("-",end="")

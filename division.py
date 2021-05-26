@@ -14,10 +14,23 @@ quotient = ""
 num1 = input("Enter first number: ")
 num2 = input("Enter second number: ")
 
+
+gap1 = len(num1) - len(num2)
+
+if(len(num2) < len(num1)):
+    if gap1 == 1:
+        num2 = "0" + num2
+    elif gap1==2:
+        num2 = "0" + "0" + num2
+
+
 size1 = len(num1)
 size2 = len(num2)
 
-if int(num1) > int(num2):
+print(size1,size2)
+print(num1,num2)
+
+if size1 == size2:
     
     for i in range(1,10):
         product = i * int(num2)
@@ -28,9 +41,9 @@ if int(num1) > int(num2):
             quotient = str(i)
             break;
 
-    for i in diff1:
+    for i in str(diff1):
         n1.append(i)
-    for j in diff2:
+    for j in str(diff2):
         n2.append(j)
 
     for i in range(1,size1+1):
