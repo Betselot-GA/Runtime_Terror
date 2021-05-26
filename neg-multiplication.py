@@ -7,15 +7,30 @@ negative = 0
 num1 = input("Enter first number: ")
 num2 = input("Enter second number: ")
 
+
+
+
+if num1[0]== '-'  and num2[0] != '-':
+    print("debug")
+    negative = 1
+    print("debug1")
+    num1 = num1.replace("-","")
+        
+elif num1[0] != '-' and num2[0] == '-':
+    negative = 1
+    print("debug3")
+    num2 = num2.replace("-","")
+    
+elif(num1[0]=='-' and num2[0] == '-'):
+    num1 = num1.replace("-","")
+    num2 = num2.replace("-","")
+    
+print(num1)
+print(num2)
 size1 = len(num1)
 size2 = len(num2)
-
-if int(num1) < 0  and int(num2) > 0 or int(num1) > 0 and int(num2)<0:
-    negative = 1
-    
-
-
 if size1 == size2:
+    print("debug2")
     if size1 > 1:
         if int(num1) < int(num2):
             temp = num1
