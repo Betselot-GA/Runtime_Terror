@@ -2,7 +2,7 @@ n1 = []
 n2 = []
 result = []
 flag = 0
-carry = 0
+
 
 num1 = input("Enter first number: ")
 num2 = input("Enter second number: ")
@@ -21,14 +21,16 @@ if(size1 == size2 and size1 > 1):
     for j in num2:
         n2.append(j)
         
-            
+    carry = 0        
     for i in range(1,size1+1):
         diff = 0
+        
         #print(result)
         if result:
             if carry == 1:
                 n1[size1 - i] =  int(n1[size1 - i])-1
                 print(n1[size1-i])
+                carry = 0
                 
             if (int(n1[size1-i]) < int(n2[size2-i])):
                 print("debug 2")
@@ -39,7 +41,7 @@ if(size1 == size2 and size1 > 1):
                 
             else:
                 print("debug 3")
-                print(int(n1[size1-i])-1)
+                print(int(n1[size1-i]))
                 
                 diff = int(n1[size1 - i]) - int(n2[size1 - i]) 
             
@@ -49,13 +51,12 @@ if(size1 == size2 and size1 > 1):
                 carry = 1
                 n1[size1 - i] = "1" + str(n1[size1 - i])
                 diff = int(n1[size1 - i]) - int(n2[size1 - i])
-                n1[size1 - i] =  int(n1[size1 - i])-1
             elif int(n1[size1-i]) > int(n2[size2-i]):
                 print("aaaa")
                 diff = int(n1[size1 - i]) - int(n2[size1 - i])
 
-        if carry == 1:
-            n1[size1 - i] =  int(n1[size1 - i])-1
+        #if carry == 1:
+            #n1[size1 - i] =  int(n1[size1 - i])-1
             
         #print(result)  
         result.append(diff)
